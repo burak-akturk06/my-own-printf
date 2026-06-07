@@ -35,6 +35,7 @@ int print(char *arr, ...)
             switch (*ptrArray)
             {
                 case '\0':
+                    text[indexOfText] = '\0';
                     lengthOfArray = countStringLength(text);
                     return printFinalArray(text, lengthOfArray);
                     break;
@@ -50,6 +51,7 @@ int print(char *arr, ...)
         }
         ptrArray += 1;
     }
+    text[indexOfText] = '\0';
     lengthOfArray = countStringLength(text);
     return printFinalArray(text, lengthOfArray);
 
@@ -57,7 +59,7 @@ int print(char *arr, ...)
 
 static int printFinalArray(char *text, int lengthOfArray)
 {
-    DWORD numberOfCharsWritten = -1;
+    DWORD numberOfCharsWritten = 0;
     const HANDLE stdHandle = GetStdHandle(STD_OUTPUT_HANDLE);
 
     if (stdHandle != NULL && stdHandle !=INVALID_HANDLE_VALUE)
