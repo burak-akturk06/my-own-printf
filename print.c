@@ -2,7 +2,7 @@
 #include <stdarg.h>
 
 #define MAX_ARRAY_LENGTH 1024
-#define ASCII_CHAR_INT_DIFF 48
+#define ASCII_CHAR_INT_DIFF 48  //integer value of the char '0', also the integer difference between 0 and '0'
 
 static int printFinalArray(char *text, int lengthOfArray);
 static int countStringLength(char *arr);
@@ -12,9 +12,9 @@ int print(char *arr, ...)
 {
     va_list ap;
     va_start(ap, arr);
-    // va_arg(ap, char);
-    int indexOfText = 0;
-    int lengthOfArray = 0;
+
+    int indexOfText = 0; //the current index of the array text
+    int lengthOfArray = 0; //length of the array text
     char *ptrArray = arr;
     char text[MAX_ARRAY_LENGTH];
 
@@ -57,6 +57,12 @@ int print(char *arr, ...)
                     break;
                 }
 
+                // case 's':
+                // {
+                //     char *str = va_arg(ap, char*);
+
+                //     break;
+                // }
                 default:
                     break;
             }
@@ -84,7 +90,7 @@ static int printFinalArray(char *text, int lengthOfArray)
     return numberOfCharsWritten;
 }
 
-static int countStringLength(char *arr)
+static int countStringLength(char *arr) 
 {
     int stringLength = 0;
     while (*arr != '\0')
@@ -95,6 +101,16 @@ static int countStringLength(char *arr)
     return stringLength;
 }
 
+/*
+* Converts an integer into a string and appends the string to a given character buffer.
+* 
+* @param  integer      the integer we want to convert to string
+* @param  indexOfText  current index of the destination buffer
+* @param  arr          the destination character buffer where the string will be appended
+* @return indexOfText  the updated index of the destination buffer after appending
+*
+*/
+
 static int intToString(int integer, int indexOfText, char *arr)
 {
     int remainder = 0;
@@ -103,7 +119,7 @@ static int intToString(int integer, int indexOfText, char *arr)
     int index = 0;
     if(integer == 0)
     {
-        c = '0';
+        c = ASCII_CHAR_INT_DIFF;  
         arr[indexOfText] = c;
         indexOfText += 1;
         return indexOfText;
@@ -141,3 +157,5 @@ static int intToString(int integer, int indexOfText, char *arr)
     return indexOfText;
     
 }
+
+
