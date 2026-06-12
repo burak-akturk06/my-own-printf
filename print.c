@@ -8,6 +8,7 @@ static int printFinalArray(char *text, int lengthOfArray);
 static int countStringLength(char *arr);
 static int intToString(int integer, int indexOfText, char *arr);
 static int appendString(char* string, char* arr, int indexOfText);
+static int floatToString(float flt, char* arr, int indexOfText);
 
 int print(char *arr, ...)
 {
@@ -58,6 +59,12 @@ int print(char *arr, ...)
                     break;
                 }
 
+                case 'f':
+                {
+                    int flt = va_arg(ap, float);
+                    
+                }
+
                 case 's':
                 {
                     char *str = va_arg(ap, char*);
@@ -79,9 +86,9 @@ int print(char *arr, ...)
 }
 /**
 * prints the character array to the console.
-* @param text the character array to be printed
-* @param lengthOfArray length of the char array which will be printed
-* @return numberOfCharsWritten number of characters succesfully written to the console
+* @param text                   the character array to be printed
+* @param lengthOfArray          length of the char array which will be printed
+* @return numberOfCharsWritten  number of characters succesfully written to the console
 */
 static int printFinalArray(char *text, int lengthOfArray)
 {
@@ -100,7 +107,7 @@ static int printFinalArray(char *text, int lengthOfArray)
 *   calculates the character number in a character buffer. '\0' is not included in the count
 *
 * @param arr    a character buffer to calculate its length  
-* @return stringLength  length of the character buffer
+* @return       stringLength  length of the character buffer
 */
 static int countStringLength(char *arr) 
 {
@@ -116,9 +123,9 @@ static int countStringLength(char *arr)
 /**
 * Converts an integer into a string and appends the string to a given character buffer.
 * 
-* @param integer      the integer we want to convert to string
-* @param indexOfText  current index of the destination buffer
-* @param arr          the destination character buffer where the string will be appended
+* @param integer       the integer we want to convert to string
+* @param indexOfText   current index of the destination buffer
+* @param arr           the destination character buffer where the string will be appended
 * @return indexOfText  the updated index of the destination buffer after appending
 *
 */
@@ -172,10 +179,11 @@ static int intToString(int integer, int indexOfText, char *arr)
 
 /** 
 * appends a string to the given character buffer
-* @param string  the appended string
-* @param arr     the character buffer to append the string
-* @param indexOfText  current index of arr when it is passed into the function
-* @return indexOfText  current index of arr after string is appended
+*
+* @param string         the appended string
+* @param arr            the character buffer to append the string
+* @param indexOfText    current index of arr when it is passed into the function
+* @return indexOfText   current index of arr after string is appended
 */
 static int appendString(char* string, char* arr, int indexOfText)
 {
@@ -189,5 +197,20 @@ static int appendString(char* string, char* arr, int indexOfText)
     
     return indexOfText;
 }
+
+/**
+* converts a float number into a string and appends the string to the given character buffer
+* @param flt            a floating point number to convert into string
+* @param arr            the destination character buffer where the string will be appended
+* @param indexOfText    current index of destination character buffer
+* @return indexOfText   current index of destination character buffer after appending
+*/
+static int floatToString(float flt, char* arr, int indexOfText)
+{
+
+    return indexOfText;
+}
+
+
 
 
