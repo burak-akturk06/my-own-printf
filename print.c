@@ -76,7 +76,12 @@ int print(char *arr, ...)
     return printFinalArray(text, lengthOfArray);
 
 }
-
+/*
+* prints the character array to the console.
+* @param text the character array to be printed
+* @param lengthOfArray length of the char array which will be printed
+* @return numberOfCharsWritten number of characters succesfully written to the console
+*/
 static int printFinalArray(char *text, int lengthOfArray)
 {
     DWORD numberOfCharsWritten = 0;
@@ -90,6 +95,12 @@ static int printFinalArray(char *text, int lengthOfArray)
     return numberOfCharsWritten;
 }
 
+/*
+*   calculates the character number in a character buffer. '\0' is not included in the count
+*
+* @param arr    a character buffer to calculate its length  
+* @return stringLength  length of the character buffer
+*/
 static int countStringLength(char *arr) 
 {
     int stringLength = 0;
@@ -104,9 +115,9 @@ static int countStringLength(char *arr)
 /*
 * Converts an integer into a string and appends the string to a given character buffer.
 * 
-* @param  integer      the integer we want to convert to string
-* @param  indexOfText  current index of the destination buffer
-* @param  arr          the destination character buffer where the string will be appended
+* @param integer      the integer we want to convert to string
+* @param indexOfText  current index of the destination buffer
+* @param arr          the destination character buffer where the string will be appended
 * @return indexOfText  the updated index of the destination buffer after appending
 *
 */
