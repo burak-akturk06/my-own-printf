@@ -58,12 +58,12 @@ int print(char *arr, ...)
                     break;
                 }
 
-                // case 's':
-                // {
-                //     char *str = va_arg(ap, char*);
-
-                //     break;
-                // }
+                case 's':
+                {
+                    char *str = va_arg(ap, char*);
+                    indexOfText = appendString(str, text, indexOfText);
+                    break;
+                }
                 default:
                     break;
             }
@@ -179,7 +179,14 @@ static int intToString(int integer, int indexOfText, char *arr)
 */
 static int appendString(char* string, char* arr, int indexOfText)
 {
-
+    
+    while (*string != '\0')
+    {
+        arr[indexOfText] = *string;
+        indexOfText += 1;
+        string += 1;
+    }
+    
     return indexOfText;
 }
 
