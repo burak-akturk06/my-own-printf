@@ -7,6 +7,7 @@
 static int printFinalArray(char *text, int lengthOfArray);
 static int countStringLength(char *arr);
 static int intToString(int integer, int indexOfText, char *arr);
+static int appendString(char* string, char* arr, int indexOfText);
 
 int print(char *arr, ...)
 {
@@ -179,7 +180,7 @@ static int intToString(int integer, int indexOfText, char *arr)
 static int appendString(char* string, char* arr, int indexOfText)
 {
 
-    return indexOfText
+    return indexOfText;
 }
 
 
